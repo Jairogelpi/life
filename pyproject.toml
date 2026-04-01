@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "life-agents"
+version = "1.0.0"
+description = "Living Infrastructure for Agents - The framework that solves the 10 gaps no one else has"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Jairo", email = "jairo@example.com"},
+    {name = "Cobos", email = "cobos@example.com"}
+]
+keywords = ["ai", "agents", "multi-agent", "autonomous", "biological", "memory"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "numpy>=1.24.0",
+    "httpx>=0.24.0",
+    "redis>=4.5.0",
+    "sentence-transformers>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+]
+langchain = ["langchain>=0.1.0", "langchain-core>=0.1.0"]
+crewai = ["crewai>=0.1.0"]
+autogen = ["pyautogen>=0.2.0"]
+
+[project.urls]
+Homepage = "https://github.com/Jairogelpi/life"
+Documentation = "https://github.com/Jairogelpi/life#readme"
+Repository = "https://github.com/Jairogelpi/life"
+Issues = "https://github.com/Jairogelpi/life/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311']
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
