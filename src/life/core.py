@@ -58,6 +58,14 @@ class LifeAgent:
         # Observation system (solves gap #1)
         self.observation = ObservationSystem(agent_id=self.dna.id)
         
+        # Vibe Protocol (emotional communication)
+        from life.vibe import VibeProtocol
+        self.vibe_protocol = VibeProtocol(agent=self)
+        
+        # Genesis (self-evolution)
+        from life.genesis import Genesis
+        self.genesis = Genesis(agent=self)
+        
         # State tracking
         self.state = AgentState()
         self._execution_count = 0

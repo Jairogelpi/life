@@ -5,6 +5,22 @@ All notable changes to LIFE will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-04-01
+
+### Added
+- **Vibe Protocol**: Emotional communication between agents
+  - Vibe: emotional signal (energy, mood, urgency, trust, coherence)
+  - Resonance: compatibility score between agents
+  - Emotional response: automatic reaction to another's vibe
+  - VibeProtocol: exchange vibes + data
+
+- **Genesis**: Agent self-evolution and reproduction
+  - Reproduction: agents create children with mutations
+  - Evolution: agents modify their own DNA
+  - Discovery: agents find new capabilities
+  - Society: agents form organizations with governance
+  - Collective intelligence: group problem solving
+
 ## [1.0.0] - 2026-04-01
 
 ### Added

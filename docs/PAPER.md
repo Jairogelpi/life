@@ -126,6 +126,41 @@ Cross-framework tracing:
 
 This addresses gap #1 (observability).
 
+### 2.8 Vibe Protocol (Emotional Communication Layer) ⭐ KILLER FEATURE
+
+**This is the REVOLUTIONARY.** Just as agents are "for AI", Vibe is "for agents":
+
+- **Vibe**: Emotional signal containing energy, mood, urgency, trust, coherence
+- **Resonance**: How well two agents "vibe" together (compatibility score)
+- **Emotional Response**: Automatic reaction to another agent's vibe
+- **VibeProtocol**: Exchange vibes + data
+
+Agents don't just exchange data — they exchange EMOTIONAL STATES.
+
+```python
+# Agent A is stressed and needs help
+worker.hormones.inject("cortisol", 0.5)  # Stress
+worker.hormones.inject("adrenaline", 0.3)  # Urgency
+
+# Agent A emits vibe
+vibe = Vibe(
+    energy=0.6,
+    mood=-0.3,  # Negative (stressed)
+    urgency=0.3,
+    trust=0.5,
+    coherence=0.9,
+)
+
+# Agent B receives and REACTS
+helper.receive_vibe("AgentA", vibe)
+# Agent B automatically adjusts:
+# - Increases adrenaline (empathy with urgency)
+# - Reduces mood (empathy with stress)
+# - Adjusts hormones accordingly
+```
+
+This enables **emotional communication** between agents — a completely novel capability.
+
 ---
 
 ## 3. Implementation

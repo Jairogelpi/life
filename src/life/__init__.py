@@ -10,8 +10,11 @@ from life.immune import ImmuneSystem
 from life.nervous import NervousSystem
 from life.homeostasis import Homeostasis
 from life.context import ClawNetContext
+from life.vibe import Vibe, VibeProtocol
+from life.genesis import Genesis, Discovery
+from life.observation import ObservationSystem
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __all__ = [
     "LifeAgent",
     "DNA",
@@ -21,4 +24,9 @@ __all__ = [
     "NervousSystem",
     "Homeostasis",
     "ClawNetContext",
+    "Vibe",
+    "VibeProtocol",
+    "Genesis",
+    "Discovery",
+    "ObservationSystem",
 ]

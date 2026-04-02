@@ -35,12 +35,22 @@ dependencies = [
 dev = [
     "pytest>=7.0.0",
     "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
     "black>=23.0.0",
+    "isort>=5.12.0",
     "mypy>=1.0.0",
+    "flake8>=6.0.0",
 ]
-langchain = ["langchain>=0.1.0", "langchain-core>=0.1.0"]
+langchain = [
+    "langchain>=0.1.0",
+    "langchain-core>=0.1.0",
+    "langchain-openai>=0.1.0",
+]
 crewai = ["crewai>=0.1.0"]
 autogen = ["pyautogen>=0.2.0"]
+all = [
+    "life-agents[dev,langchain,crewai,autogen]",
+]
 
 [project.urls]
 Homepage = "https://github.com/Jairogelpi/life"

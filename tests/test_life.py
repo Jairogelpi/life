@@ -168,5 +168,77 @@ class TestLifeAgent:
         assert agent2.context.get("shared_data") == "important"
 
 
+class TestVibe:
+    """Tests for emotional communication"""
+    
+    def test_vibe_creation(self):
+        from life.vibe import Vibe
+        vibe = Vibe(energy=0.8, mood=0.5, urgency=0.3, trust=0.7, coherence=0.9)
+        assert vibe.energy == 0.8
+        assert vibe.mood == 0.5
+    
+    def test_vibe_signal_roundtrip(self):
+        from life.vibe import Vibe
+        vibe = Vibe(energy=0.8, mood=0.5, urgency=0.3, trust=0.7, coherence=0.9)
+        signal = vibe.to_signal()
+        restored = Vibe.from_signal(signal)
+        assert abs(restored.energy - vibe.energy) < 0.01
+    
+    def test_resonance(self):
+        from life.vibe import Vibe
+        vibe1 = Vibe(energy=0.8, mood=0.5, urgency=0.3, trust=0.7, coherence=0.9)
+        vibe2 = Vibe(energy=0.7, mood=0.4, urgency=0.2, trust=0.8, coherence=0.8)
+        resonance = vibe1.resonance_with(vibe2)
+        assert 0.0 <= resonance <= 1.0
+    
+    def test_emotional_response(self):
+        from life.vibe import Vibe
+        agent_vibe = Vibe(energy=0.8, mood=0.5, urgency=0.2, trust=0.7, coherence=0.9)
+        stress_vibe = Vibe(energy=0.3, mood=-0.5, urgency=0.9, trust=0.3, coherence=0.5)
+        response = agent_vibe.emotional_response(stress_vibe)
+        assert response.urgency >= agent_vibe.urgency
+
+
+class TestGenesis:
+    """Tests for agent evolution and reproduction"""
+    
+    def test_reproduction(self):
+        parent = LifeAgent(name="Parent")
+        child = parent.genesis.reproduce(mutations={"add_capability": "research"})
+        assert child.dna.name != parent.dna.name
+        assert "research" in child.dna.capabilities
+        assert parent.genesis.generation == 1
+    
+    def test_evolution(self):
+        agent = LifeAgent(name="Evolving")
+        agent.genesis.evolve("personality", ("openness", 0.9))
+        assert agent.dna.personality.openness == 0.9
+    
+    def test_discovery(self):
+        agent = LifeAgent(name="Explorer")
+        discovery = agent.genesis.discover(
+            capability_name="test_skill",
+            description="Can do X",
+            evidence=["evidence1", "evidence2"],
+        )
+        assert discovery.proven == True
+        assert "test_skill" in agent.dna.capabilities
+    
+    def test_society_formation(self):
+        a = LifeAgent(name="A")
+        b = LifeAgent(name="B")
+        society = a.genesis.form_society("Team", [a, b], "consensus")
+        assert society["name"] == "Team"
+        assert len(society["members"]) == 2
+    
+    def test_evolution_stats(self):
+        agent = LifeAgent(name="Stats")
+        agent.genesis.reproduce()
+        agent.genesis.discover("skill", "does X", ["e1", "e2"])
+        stats = agent.genesis.get_evolution_stats()
+        assert stats["children_created"] == 1
+        assert stats["discoveries_made"] == 1
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
